@@ -1,6 +1,15 @@
 # WechatPay
-Android 微信支付功能的简单集成和入坑说明
-
+Android 微信支付功能的简单集成和入坑说明，集成了微信支付的统一下单功能和支付功能
+#### 微信支付功能介绍：   
+     1. 统一下单功能-----这个实际应用中需放在服务端进行处理
+     2. 支付功能-----调起支付界面，接收支付的返回状态
+### Usage
+#### 1. Add dependency
+```groovy
+	dependencies {
+	        implementation .....
+	}
+```
 
 License
 -------
