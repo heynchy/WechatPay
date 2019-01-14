@@ -42,9 +42,44 @@ Android 微信支付功能的简单集成和入坑说明，集成了微信支付
 ```
     注意事项：com.test.application.wxapi.WXPayEntryActivity 此处路径要与applicationID 保持一致，否则会出现
              不能够接收返回通知的问题
-#### 3. 	     
-	     
-	     
+#### 3. 拷贝WXPayEntryActivity.java的内容至自己工程的 WXPayEntryActivity.java文件中
+    可参考Demo中WXPayEntryActivity文件即可；
+    
+### 功能使用
+#### 1. 在Application中进行初始化----一定要执行，否则会报错
+       WechatPayUtil.initConfig(this,
+                "微信注册的APP_ID",
+                "商户号",
+                "商户号对应的支付秘钥（32位）");
+#### 2. 统一下单------实际应用中应在服务端完成订单的生成
+      ```java
+      /**
+         * orderSendInfo 统一下单接口的入参信息
+         * getPreOrderInfo(String describe, String money)
+         *    ------  describe: 商品的描述
+         *    ------  money:    商品的钱数（单位： 分）
+         */
+        OrderSendInfo orderSendInfo = WechatPayUtil.getPreOrderInfo("test", "1");
+        WechatPayUtil.createPrepayOrder(orderSendInfo, new PrepayOrderListener() {
+            @Override
+            public void Success(PrepayIdInfo data) {
+	        // 返回请求之后的预订单信息--data.getPrepay_id()为预订单ID； 如果预订单ID为null表明出错，可打印data来查看所有的返回信息      
+            }
+
+            @Override
+            public void Faiulre(String data) {
+                Log.i("heyn1234", "生成订单ID失败： " + data)；
+            }
+        });
+      ```
+ #### 3. 微信支付
+      ```java
+         // 打开支付界面----进行支付,参数为---预订单ID
+         WechatPayUtil.wechatPay(mPreOrderId)
+      ```
+简单的集成，参考了网上很多大佬的文章和说明，非常感谢！
+------
+
 License
 -------
     Copyright 2019 heynchy
