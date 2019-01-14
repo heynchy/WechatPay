@@ -43,7 +43,8 @@ Android 微信支付功能的简单集成和入坑说明，集成了微信支付
     注意事项：com.test.application.wxapi.WXPayEntryActivity 此处路径要与applicationID 保持一致，否则会出现
              不能够接收返回通知的问题
 #### 3. 拷贝WXPayEntryActivity.java的内容至自己工程的 WXPayEntryActivity.java文件中
-    可参考Demo中WXPayEntryActivity文件即可；
+    参考Demo中的wxapi创建对应的文件包，可参考Demo中WXPayEntryActivity文件即可；
+    注意事项： 创建文件包时的包路径要与application ID保持一致，否则收不到返回信息
     
 ### 功能使用
 #### 1. 在Application中进行初始化----一定要执行，否则会报错
@@ -52,7 +53,7 @@ Android 微信支付功能的简单集成和入坑说明，集成了微信支付
                 "商户号",
                 "商户号对应的支付秘钥（32位）");
 #### 2. 统一下单------实际应用中应在服务端完成订单的生成
-      ```java
+```java
       /**
          * orderSendInfo 统一下单接口的入参信息
          * getPreOrderInfo(String describe, String money)
@@ -71,12 +72,12 @@ Android 微信支付功能的简单集成和入坑说明，集成了微信支付
                 Log.i("heyn1234", "生成订单ID失败： " + data)；
             }
         });
-      ```
+```
  #### 3. 微信支付
-      ```java
+```java
          // 打开支付界面----进行支付,参数为---预订单ID
          WechatPayUtil.wechatPay(mPreOrderId)
-      ```
+```
 简单的集成，参考了网上很多大佬的文章和说明，非常感谢！
 ------
 
