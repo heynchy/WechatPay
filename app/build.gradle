@@ -3,6 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     defaultConfig {
+//
         applicationId "com.test.application"
         minSdkVersion 16
         targetSdkVersion 28
@@ -39,6 +40,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation project(':payLibs')
+    implementation 'com.github.heynchy:WechatPay:0.0.1'
     implementation 'com.google.code.gson:gson:2.4'
 }
