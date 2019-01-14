@@ -41,7 +41,10 @@ Android 微信支付功能的简单集成和入坑说明，集成了微信支付
             android:exported="true"/>
 ```
     注意事项：com.test.application.wxapi.WXPayEntryActivity 此处路径要与applicationID 保持一致，否则会出现
-             不能够接收返回通知的问题	   
+             不能够接收返回通知的问题
+#### 3. 	     
+	     
+	     
 License
 -------
     Copyright 2019 heynchy
